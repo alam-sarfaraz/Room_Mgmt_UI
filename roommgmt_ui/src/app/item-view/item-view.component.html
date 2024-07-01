@@ -1,0 +1,56 @@
+<app-sidebar></app-sidebar>
+<div class="table-responsive" style="margin-left: 310px; margin-top: 40px;">
+  <h2 class="text-primary" style="margin-left: 10px;">PURCHASE ORDER DETAIL :</h2>
+  <table class="table table-striped table-bordered table-hover">
+    <thead class="thead-dark " style="text-align: center;">
+      <tr>
+        <th>ID</th>
+        <th>PURCHASE ID</th>
+        <th>USER NAME</th>
+        <th>EMAIL</th>
+        <th>CREATED DATE</th>
+        <th>MONTH</th>
+        <th>DAY</th>
+        <th>MODE OF PAYMENT</th>
+        <th>PAYMENT STATUS</th>
+        <th>STATUS</th>
+        <th>GROUP NAME</th>
+        <th>PURCHASE DETAIL</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let item of purchaseOrderList">
+        <td>{{ item.id }}</td>
+        <td>{{ item.identifier }}</td>
+        <td>{{ item.userName }}</td>
+        <td>{{ item.emailId}}</td>
+        <td>{{ item.createdDate }}</td>
+        <td>{{ item.month }}</td>
+        <td>{{ item.day }}</td>
+        <td>{{ item.modeOfPayment }}</td>
+        <td>{{ item.paymentStatus }}</td>
+        <td [ngStyle]="{color:changeStatusColor(item.status)}" style="font-weight: bold;">{{ item.status }}</td>
+        <td>{{ item.groupName }}</td>
+        <table class="table table-sm table-dark">
+          <thead class= "thead-success">
+            <th>ID</th>
+            <th>ITEM_NAME</th>
+            <th>PRICE</th>
+            <th>UNIT_PRICE</th>
+            <th>QUANTITY</th>
+            <th>UNIT_OF_MEASUREMENT</th>
+          </thead>
+          <tr  *ngFor="let detail of item.itemDetail">
+            <td class="table-primary">{{detail.id}}</td>
+            <td class="table-danger">{{detail.itemName}}</td>
+            <td class="table-success">{{detail.price}}</td>
+            <td class="table-warning">{{detail.unitPrice}}</td>
+            <td class="table-secondary">{{detail.quantity}}</td>
+            <td class="table-info">{{detail.unitOfMeasurement}}</td>
+          </tr>
+        </table>
+
+
+    </tbody>
+  </table>
+</div>

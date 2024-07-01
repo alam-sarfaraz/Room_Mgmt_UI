@@ -1,0 +1,55 @@
+<app-sidebar></app-sidebar>
+
+<div class="table-responsivec table" style="margin-left: 300px; margin-top: 50px; margin-bottom: 5px;">
+  <h2 class="text-primary">NOTIFICATION DETAIL :</h2>
+  <table class="table table-striped table-bordered table-hover text-center">
+    <thead class="thead-dark" style="text-align: center;">
+      <tr>
+        <th>PURCHASE ID</th>
+        <th>NOTIFICATION DETAIL</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let purchaseOrder of notificationMap | keyvalue">
+        <td>{{ purchaseOrder.key }}</td>
+
+        <table class="table text-center bg-black text-white">
+        <thead>
+        <th>NOTIFICATION ID</th>
+        <th>BUYER USERNAME</th>
+        <th>BUYER EMAIL ID</th>
+        <th>NOTIFICATION RECEIVER USERNAME</th>
+        <th>NOTIFICATION RECEIVER EMAIL ID</th>
+        <th>GROUP NAME</th>
+        <th>STATUS</th>
+        <th>CREATED DATE</th>
+        <th>CREATED TIME</th>
+        <th>MODIFIED DATE</th>
+        <th>MODIFIED TIME</th>
+        </thead>
+        <tbody>
+          <ng-container *ngFor="let notification of purchaseOrder.value; let i = index">
+          <tr>
+            <td class="table-primary">{{ notification.identifier }}</td>
+            <td class="table-secondary" >{{ notification.buyerUserName }}</td>
+            <td class="table-success" >{{ notification.buyerEmailId }}</td>
+            <td class="table-danger">{{ notification.notificationReceiverUsername }}</td>
+            <td class="table-warning">{{ notification.notificationReceiverEmailId }}</td>
+            <td class="table-info">{{ notification.groupName }}</td>
+            <td class="table-secondary" [ngStyle]="{color:changeStatusColor(notification.status)}" style="font-weight: bold;">{{ notification.status }}</td>
+            <td class="table-primary" >{{ notification.createdDate }}</td>
+            <td class="table-success" >{{ notification.createdTime }}</td>
+            <td class="table-danger">{{ notification.modifiedDate }}</td>
+            <td class="table-warning">{{ notification.modifiedTime }}</td>
+          </tr>
+        </ng-container>
+        </tbody>
+      </table>
+    </tbody>
+  </table>
+</div>
+
+
+
+
+

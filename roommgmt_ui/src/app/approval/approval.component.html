@@ -1,0 +1,124 @@
+<app-po-detail-navbar></app-po-detail-navbar>
+<body>
+  <!-- Signup Form -->
+    <div class="container " style="margin-top: 120px;">
+      <div class="row">
+        <div class="col-md-10 offset-md-1">
+          <div class="card shadow-lg p-3 mb-5 bg-white rounded">
+            <div class="card-header bg-dark">
+              <h2 class="text-center text-white mb-3">APPROVAL BY PURCHASE ID</h2>
+            </div>
+            <div class="card-body">
+              <form [formGroup]="approvalGroup" (ngSubmit)="approvedStatus(approvalGroup)">
+
+                   <!-- 1 row -->
+                   <div class="form-row">
+                    <div class="form-group col-md-6">
+                      <label for="grp" >Select Group Name:</label>
+                        <select class="form-control" id="grp" (onChange)="getGrpDetailList($event)"  #gname  (change)="onChangeMethod(gname.value)" formControlName="grpname">
+                          <option *ngFor="let grp of selectedGroupList" [value]="grp.groupName">{{grp.groupName}}</option>
+                        </select>
+                    </div>
+                    </div>
+                <!-- 1 row -->
+
+                <!-- 2 row -->
+                <div class="form-row">
+                  <div class="form-group col-md-4">
+                    <label for="uname" >Select Username:</label>
+                      <select class="form-control" id="uname" (click)="viewAllUser($event)" formControlName="uname">
+                        <option *ngFor="let user of usernameList" [value]="user">{{user}}</option>
+                      </select>
+                  </div>
+
+                  <div class="form-group col-md-4">
+                    <label for="poid" >Select Purchase ID:</label>
+                      <select class="form-control" id="poid" (click)="viewPoidLsit($event)" formControlName="poid">
+                        <option  *ngFor="let poid of poidList" [value]="poid">{{poid}}</option>
+                      </select>
+                  </div>
+
+                  <div class="form-group col-md-4">
+                    <label for="status">Select Status:</label>
+                    <select class="form-control " id="status" formControlName="status">
+                      <option value="Approved">Approved</option>
+                      <option value="Cancelled">Cancelled</option>
+                    </select>
+                  </div>
+                </div>
+                <!-- 1 row end -->
+
+                <div class="d-flex justify-content-center">
+                <button type="submit" class="btn btn-success ml-2"  [disabled]="!approvalGroup.valid" >Submit</button>
+                <button type="reset" class="btn btn-danger ml-2">Reset</button>
+              </div>
+              </form>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <app-footer></app-footer>
+  </body>
+
+
+ <!-- Signup Form 2-->
+  <body>
+    <!-- Signup Form -->
+      <div class="container " style="margin-top: 70px;">
+        <div class="row">
+          <div class="col-md-10 offset-md-1">
+            <div class="card shadow-lg p-3 mb-5 bg-white rounded">
+              <div class="card-header bg-dark">
+                <h2 class="text-center text-white mb-3">APPROVAL BY NOTIFICATION ID</h2>
+              </div>
+              <div class="card-body">
+                <form [formGroup]="approvedBynIdGroup" (ngSubmit)="approvedStatusBynotification(approvedBynIdGroup)">
+
+                    <!-- 1 row -->
+                    <div class="form-row">
+                      <div class="form-group col-md-6">
+                        <label for="grpname" >Select Group Name:</label>
+                          <select class="form-control" id="grpname" (onChange)="getGrpDetailList($event)" #gname1 (change)="onDropdownChange(gname1.value)" formControlName="grpname">
+                            <option *ngFor="let grp of selectedGroupList" [value]="grp.groupName">{{grp.groupName}}</option>
+                          </select>
+                      </div>
+                      </div>
+                  <!-- 1 row -->
+                  <!-- 2 row -->
+                  <div class="form-row">
+                    <div class="form-group col-md-4">
+                      <label for="emailId" >Select Email Id:</label>
+                        <select class="form-control" id="emailId" (click)="viewAllEmail($event)" formControlName="emailId">
+                          <option *ngFor="let email of emaidIdList" [value]="email">{{email}}</option>
+                        </select>
+                    </div>
+
+                    <div class="form-group col-md-4">
+                      <label for="nid" >Select Notification ID:</label>
+                        <select class="form-control" id="nid"  (click)="viewAllNotification($event)" formControlName="nid">
+                          <option  *ngFor="let noidid of nnotiIdList" [value]="noidid">{{noidid}}</option>
+                        </select>
+                    </div>
+
+                    <div class="form-group col-md-4">
+                      <label for="statusnId">Select Status:</label>
+                      <select class="form-control " id="statusnId" formControlName="statusnId">
+                        <option value="Approved">Approved</option>
+                        <option value="Cancelled">Cancelled</option>
+                      </select>
+                    </div>
+                  </div>
+                  <!-- 1 row end -->
+
+                  <div class="d-flex justify-content-center">
+                  <button type="submit" class="btn btn-success ml-2" [disabled]="!approvedBynIdGroup.valid"   >Submit</button>
+                  <button type="reset" class="btn btn-danger ml-2">Reset</button>
+                </div>
+                </form>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+

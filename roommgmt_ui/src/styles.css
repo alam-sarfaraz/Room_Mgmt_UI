@@ -1,0 +1,25 @@
+/* You can add global styles to this file, and also import other style files */
+@import '../node_modules/bootstrap/dist/css/bootstrap.min.css';
+@import '../node_modules/font-awesome/css/font-awesome.min.css';
+@import '../node_modules/ngx-toastr/toastr.css';
+ /* Add your custom styles here */
+ .colorful-input {
+  border: 2px solid #ccc;
+  border-radius: 5px;
+  padding: 10px;
+}
+
+.navbar-brand{
+  font-weight: bold;
+}
+label{
+  font-weight: 200px;
+}
+
+input.ng-invalid.ng-touched{
+  border-color: red;
+}
+
+input.ng-valid.ng-touched{
+  border-color:chartreuse;
+}

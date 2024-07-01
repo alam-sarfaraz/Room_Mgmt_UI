@@ -1,0 +1,195 @@
+<app-po-detail-navbar></app-po-detail-navbar>
+<body>
+  <!-- Signup Form -->
+  <div class="container" style="margin-top: 120px">
+    <div class="row">
+      <div class="col-md-12 offset-md-1">
+        <div class="card shadow-lg p-3 mb-5 bg-white rounded">
+          <div class="card-header bg-dark">
+            <h2 class="text-center text-white mb-3">ADD NEW ITEM</h2>
+          </div>
+          <div class="card-body">
+
+
+              <form [formGroup]="AddItemList" (ngSubmit)="addnewItem()">
+
+              <!-- 1 row -->
+              <div class="form-row">
+
+                <div class="form-group col-md-4">
+                  <label for="groupName">Select Groupname:</label>
+                  <select
+                    class="form-control"
+                    id="groupName"
+                    (onChange)="getGrpDetailList($event)"
+                    #gname  (change)="onChangeMethod(gname.value)"
+                    formControlName="groupName"
+                  >
+                    <option
+                      *ngFor="let item of selectedGroupList"
+                      [value]="item.groupName"
+                    >
+                      {{ item.groupName }}
+                    </option>
+                  </select>
+                </div>
+
+                <div class="form-group col-md-4">
+                  <label for="username">Select Username:</label>
+                  <select
+                    class="form-control"
+                    id="username"
+                    (click)="viewUserNameList($event)"
+                    formControlName="uname"
+                  >
+                    <option
+                      *ngFor="let user of usernameList"
+                      [value]="user"
+                    >
+                      {{user}}
+                    </option>
+                  </select>
+                </div>
+
+                <div class="form-group col-md-4">
+                  <label for="modeofpay">Select Mode of Payment:</label>
+                  <select
+                    class="form-control"
+                    id="modeofpay"
+                    formControlName="modeofpay"
+                  >
+                    <option value="CASH">Cash</option>
+                    <option value="ONLINE">Online</option>
+                    <option value="CARD">Card</option>
+                  </select>
+                </div>
+
+                <div class="form-group col-md-4">
+                  <label for="payStatus">Select Payment Status:</label>
+                  <select
+                    class="form-control"
+                    id="payStatus"
+                    formControlName="payStatus"
+                  >
+                    <option value="DONE">Done</option>
+                    <option value="WAITING">Waiting</option>
+                  </select>
+                </div>
+
+                <div class="form-group col-md-4">
+                  <label for="pod">Purchase Date</label>
+                  <input
+                    type="date"
+                    class="form-control colorful-input"
+                    id="pod"
+                    formControlName="pod"
+                  />
+                </div>
+
+              </div>
+
+
+              <i
+                class="fa fa-edit fa-2x text-success"
+                style="display: flex; flex-direction: row-reverse"
+                (click)="addGroup()"
+                data-toggle="tooltip" data-placement="top" title="Add new Item"
+              ></i>
+              <div
+                class="card mt-1"
+                *ngFor="let group of formGroups; let i = index"
+              >
+                <div
+                  class="card-header bg-dark text-center font-weight-bold text-white"
+                >
+                  Item Detail
+                </div>
+                <div class="card-body bg-secondary">
+                  <form [formGroup]="group">
+                    <div class="form-row">
+                      <div class="form-group col-md-4">
+                        <label for="itemName" class="text-white"
+                          >Item Name:</label
+                        >
+                        <input
+                          type="text"
+                          class="form-control colorful-input"
+                          id="itemName"
+                          formControlName="itemName"
+                        />
+                      </div>
+
+                      <div class="form-group col-md-4">
+                        <label for="price" class="text-white">Price:</label>
+                        <input
+                          type="number"
+                          class="form-control colorful-input"
+                          id="price"
+                          formControlName="price"
+                        />
+                      </div>
+
+                      <div class="form-group col-md-4">
+                        <label for="quantity" class="text-white"
+                          >Quantity:</label
+                        >
+                        <input
+                          type="number"
+                          class="form-control colorful-input"
+                          id="quantity"
+                          formControlName="quantity"
+                        />
+                      </div>
+                    </div>
+
+                    <div class="form-row">
+                      <div class="form-group col-md-4">
+                        <label for="uprice" class="text-white"
+                          >Unit price:</label
+                        >
+                        <input
+                          type="number"
+                          class="form-control colorful-input"
+                          id="uprice"
+                          formControlName="uprice"
+                        />
+                      </div>
+
+                      <div class="form-group col-md-4">
+                        <label for="uom" class="text-white" class="text-white"
+                          >Unit of Measurement:</label
+                        >
+                        <input
+                          type="text"
+                          class="form-control colorful-input"
+                          id="uom"
+                          formControlName="uom"
+                        />
+                      </div>
+                    </div>
+                    <i
+                      class="fa fa-trash fa-2x text-danger"
+                      style="display: flex; flex-direction: row-reverse"
+                      data-toggle="tooltip" data-placement="top" title="Delete item"
+                      (click)="deleteGroup(i)"
+                    ></i>
+                  </form>
+                </div>
+              </div>
+
+              <!-- 3 row end -->
+              <div class="d-flex justify-content-center mt-4">
+                <button type="submit" class="btn btn-success ml-2">
+                  Create
+                </button>
+                <ngx-spinner bdColor="rgba(51, 51, 51, 0.8)" size="small" type="ball-clip-rotate-multiple"></ngx-spinner>
+                <button type="reset" class="btn btn-danger ml-2">Reset</button>
+              </div>
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <app-footer></app-footer>
+</body>

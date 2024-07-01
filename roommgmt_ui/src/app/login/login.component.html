@@ -1,0 +1,43 @@
+<body>
+ <!-- Signup Form -->
+  <div class="container " style="margin-top: 150px;">
+    <div class="row">
+      <div class="col-md-8 offset-md-2">
+        <div class="card shadow-lg p-3 mb-5 bg-white rounded">
+          <div class="card-header bg-dark">
+            <h2 class="text-center text-white">LOGIN</h2>
+          </div>
+          <div class="card-body">
+            <form [formGroup]='loginData' (ngSubmit)="signin(loginData)">
+               <!-- 1 row -->
+              <div class="form-row d-flex justify-content-center">
+                <div class="form-group col-md-8">
+                  <label for="username">Username</label>
+                  <input type="text" class="form-control colorful-input" id="username" placeholder="Enter username" formControlName="uname">
+                </div>
+              </div>
+              <!-- 1 row end -->
+
+               <!-- 2 row -->
+               <div class="form-row d-flex justify-content-center">
+                <div class="form-group col-md-8">
+                  <label for="password">Password</label>
+                  <input type="password" class="form-control colorful-input" id="password" placeholder="Enter password" formControlName="pass">
+                </div>
+              </div>
+              <!-- 2 row end -->
+              <div class="d-flex justify-content-center">
+              <button type="submit" class="btn btn-primary ">Login</button>
+              <button type="reset" class="btn btn-danger ml-2">Reset</button>
+              <button type="button" class="btn btn-warning ml-2" [routerLink]="['/forgotpasswordpage']" >Forgot password</button>
+              <button type="button" class="btn btn-success ml-2" [routerLink]="['/userregistrationpage']">Create new Account</button>
+            </div>
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <!-- Footer -->
+  <app-footer></app-footer>
+</body>

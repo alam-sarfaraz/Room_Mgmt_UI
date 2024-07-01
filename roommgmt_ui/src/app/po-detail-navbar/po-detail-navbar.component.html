@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+</head>
+  <!-- Navbar -->
+  <nav class="navbar navbar-expand-lg navbar-light bg-dark p-3 fixed-top">
+   <a class="navbar-brand text-light h2" style="font-weight: bold; font-size: 30px;" href="#">PURCHASE ORDER DETAIL</a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarNav">
+      <ul class="navbar-nav ml-auto">
+        <li class="nav-item">
+          <button class="btn btn-success" [routerLink]="['/viewpage']">Back To View</button>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link text-light h5" [routerLink]="['/addItempage']">Add New Item</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link text-light h5" [routerLink]="['/approvalPage']">Apporval</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link text-light h5" [routerLink]="['/userregistrationpage']">Export File</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link text-light h5" [routerLink]="['/contactpage']" >Purchase Details</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link text-light h5" [routerLink]="['/aboutuspage']">Upload</a>
+        </li>
+      </ul>
+    </div>
+  </nav>
+  </html>
+   <!-- Navbar end -->
